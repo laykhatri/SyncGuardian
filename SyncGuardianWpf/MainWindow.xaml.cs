@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Shapes;
@@ -10,20 +11,13 @@ namespace SyncGuardianWpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly ILogger _logger;
+        public MainWindow(ILogger logger)
         {
-            CreateLogsFolder();
             InitializeComponent();
+            _logger = logger;
+            _logger.Information("MainWindow");
         }
 
-        private void CreateLogsFolder()
-        {
-            var assemblyPath = AppDomain.CurrentDomain.BaseDirectory;
-            var logsPath = System.IO.Path.GetFullPath(System.IO.Path.Combine(assemblyPath, @"..\..\..\","Logs"));
-            if (!Directory.Exists(logsPath))
-            {
-                Directory.CreateDirectory(logsPath);
-            }
-        }
     }
 }
