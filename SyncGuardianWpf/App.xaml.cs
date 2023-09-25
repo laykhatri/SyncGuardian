@@ -10,9 +10,6 @@ using System.Windows;
 
 namespace SyncGuardianWpf
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         private IHost _host;
@@ -22,6 +19,7 @@ namespace SyncGuardianWpf
             _host = Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
+                    // DI binding here
                     DiConfig.ConfigureDependencies(services);
                 })
                 .Build();
@@ -30,14 +28,22 @@ namespace SyncGuardianWpf
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            // Start Hosting service
             await _host.StartAsync();
+
+            // Initialize MainWindow
             var mainWindow = _host.Services.GetRequiredService<MainWindow>();
+            
+            // Display MainWindow
             mainWindow.Show();
         }
 
         protected override async void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
+
+            // Stop Hosting service
             await _host.StopAsync();
         }
     }
