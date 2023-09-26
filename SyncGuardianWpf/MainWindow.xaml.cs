@@ -18,6 +18,5 @@ namespace SyncGuardianWpf
             _logger = logger;
             _logger.Information("MainWindow");
         }
-
     }
 }
