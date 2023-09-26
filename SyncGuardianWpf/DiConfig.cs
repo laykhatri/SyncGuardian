@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Serilog;
+using System.IO;
 
 namespace SyncGuardianWpf
 {
@@ -11,7 +8,26 @@ namespace SyncGuardianWpf
     {
         public static void ConfigureDependencies(IServiceCollection services)
         {
+            // Logger Service
+            var logFilePath = "Logs\\SyncGuardian-.txt";
+            EnsureDirectoryExists(logFilePath);
+
+            Serilog.ILogger logger = new LoggerConfiguration().MinimumLevel.Information()
+                .WriteTo.File(logFilePath, fileSizeLimitBytes: 10 * 1024 * 1024, rollingInterval: RollingInterval.Day, retainedFileCountLimit: 10, retainedFileTimeLimit: System.TimeSpan.FromDays(7))
+                .CreateLogger();
+            services.AddSingleton(logger);
+
+            // MainWindow DI
             services.AddSingleton<MainWindow>();
+        }
+
+        private static void EnsureDirectoryExists(string filePath)
+        {
+            var directory = Path.GetDirectoryName(filePath);
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
         }
     }
 }
