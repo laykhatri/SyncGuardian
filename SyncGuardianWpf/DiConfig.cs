@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using SyncGuardianWpf.Services;
+using SyncGuardianWpf.Services.Interfaces;
 using System.IO;
 
 namespace SyncGuardianWpf
@@ -19,6 +21,9 @@ namespace SyncGuardianWpf
 
             // MainWindow DI
             services.AddSingleton<MainWindow>();
+
+            // OtherServiceDI
+            services.AddSingleton<IDeviceIDGenerationService,DeviceIDGenerationService>();
         }
 
         private static void EnsureDirectoryExists(string filePath)
