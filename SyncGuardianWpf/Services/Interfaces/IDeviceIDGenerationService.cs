@@ -12,7 +12,7 @@ namespace SyncGuardianWpf.Services.Interfaces
         string GetGPUDetails();
         string GetWindowsVersion();
         string ComputeHash(string inputString);
-        public string GenerateDeviceId();
+        string GenerateDeviceId();
 
     }
 }
