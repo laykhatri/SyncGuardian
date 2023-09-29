@@ -10,7 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Logo_4k.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Assets\Logo_4kUpscaled.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Logo_4k.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -21,13 +33,6 @@
     <PackageReference Include="Serilog" Version="3.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="System.Management" Version="7.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Assets\Logo_4k.jpg">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
   </ItemGroup>
 
 </Project>

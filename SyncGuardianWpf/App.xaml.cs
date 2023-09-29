@@ -28,6 +28,12 @@ namespace SyncGuardianWpf
 
         protected override async void OnStartup(StartupEventArgs e)
         {
+            // Splash Screen
+            var splashScreen = _host.Services.GetRequiredService<SplashWindow>();
+            splashScreen.Show();
+
+            await Task.Delay(3000);
+
             base.OnStartup(e);
 
             // Start Hosting service
@@ -36,6 +42,9 @@ namespace SyncGuardianWpf
             // Initialize MainWindow
             var mainWindow = _host.Services.GetRequiredService<MainWindow>();
             
+            // Close SplashScreen when MainWindow is ready
+            splashScreen.Close();
+
             // Display MainWindow
             mainWindow.Show();
         }
