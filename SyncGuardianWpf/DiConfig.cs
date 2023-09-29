@@ -21,6 +21,7 @@ namespace SyncGuardianWpf
 
             // MainWindow DI
             services.AddSingleton<MainWindow>();
+            services.AddSingleton<SplashWindow>();
 
             // OtherServiceDI
             services.AddSingleton<IDeviceIDGenerationService,DeviceIDGenerationService>();
