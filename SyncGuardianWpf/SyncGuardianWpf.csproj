@@ -5,7 +5,13 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <PackageIcon>Logo_1024.jpg</PackageIcon>
+    <ApplicationIcon>Assets\Logo_4kUpscaled.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Logo_4kUpscaled.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FakeItEasy" Version="7.4.0" />
@@ -17,6 +23,13 @@
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="System.Management" Version="7.0.2" />
     <PackageReference Include="xunit.assert" Version="2.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\Logo_4k.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
