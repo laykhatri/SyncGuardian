@@ -5,8 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 
 namespace SyncGuardianWpf
@@ -14,9 +16,19 @@ namespace SyncGuardianWpf
     public partial class App : Application
     {
         private IHost _host;
-
+        private SplashWindow _splashWindow;
+        private Stopwatch _timer;
         public App()
         {
+            // Initialize Stopwatch and start
+            _timer = new Stopwatch();
+            _timer.Start();
+
+            // Initialize SplashWindow
+            _splashWindow = new SplashWindow();
+            _splashWindow.Show();
+
+            // Start configuring Host service
             _host = Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
@@ -28,12 +40,6 @@ namespace SyncGuardianWpf
 
         protected override async void OnStartup(StartupEventArgs e)
         {
-            // Splash Screen
-            var splashScreen = _host.Services.GetRequiredService<SplashWindow>();
-            splashScreen.Show();
-
-            await Task.Delay(3000);
-
             base.OnStartup(e);
 
             // Start Hosting service
@@ -41,9 +47,17 @@ namespace SyncGuardianWpf
 
             // Initialize MainWindow
             var mainWindow = _host.Services.GetRequiredService<MainWindow>();
-            
+
+            // Stop Stopwatch
+            _timer.Stop();
+
+            // Calculate Remaining time for the 3 seconds
+            var remainingDelay = 3000 - (int)_timer.ElapsedMilliseconds;
+            if (remainingDelay > 0)
+                await Task.Delay(remainingDelay);
+
             // Close SplashScreen when MainWindow is ready
-            splashScreen.Close();
+            _splashWindow.Close();
 
             // Display MainWindow
             mainWindow.Show();
@@ -54,7 +68,7 @@ namespace SyncGuardianWpf
             base.OnExit(e);
 
             // Stop Hosting service
-            await _host.StopAsync();
+            await _host.WaitForShutdownAsync();
         }
     }
 }

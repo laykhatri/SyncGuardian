@@ -10,10 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Loading.jpg" />
+    <None Remove="Assets\Loading.png" />
     <None Remove="Assets\Logo_4k.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Assets\Loading.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Logo_4kUpscaled.ico" />
   </ItemGroup>
 
