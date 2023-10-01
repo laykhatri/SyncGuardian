@@ -1,5 +1,12 @@
 ﻿using Serilog;
+using SyncGuardianWpf.Services.Interfaces;
+using System;
+using System.ComponentModel;
+using System.IO;
+using System.Net;
+using System.Text.Json;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace SyncGuardianWpf
 {
@@ -11,9 +18,8 @@ namespace SyncGuardianWpf
         private readonly ILogger _logger;
         public MainWindow(ILogger logger)
         {
-            InitializeComponent();
             _logger = logger;
-            _logger.Information("MainWindow");
+            InitializeComponent();
         }
     }
 }
