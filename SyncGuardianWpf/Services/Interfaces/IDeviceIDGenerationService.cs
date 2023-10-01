@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace SyncGuardianWpf.Services.Interfaces
 {
-     public interface IDeviceIDGenerationService
+    public interface IDeviceIDGenerationService
     {
+        string GenerateDeviceId();
+        bool ValidateDeviceID(string hash);
+        bool NeedInitialSetup();
+        bool ResetDeviceId();
+        string ComputeHash(string inputString);
         string GetCPUDetails();
         string GetGPUDetails();
         string GetWindowsVersion();
-        string ComputeHash(string inputString);
-        string GenerateDeviceId();
-
+        string GenerateUniqueGUID();
+        bool SaveGUIDToRegistry(string guid);
+        string ReadGUIDFromRegistry();
+        string GenerateConcatedInfo(string cpu, string gpu, string windowsVersion, string guid);
     }
 }

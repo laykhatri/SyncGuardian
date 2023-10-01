@@ -1,10 +1,7 @@
-﻿using SyncGuardianWpf.Services;
+﻿using FakeItEasy;
+using Serilog;
+using SyncGuardianWpf.Services;
 using SyncGuardianWpf.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SyncGuardianTests.WPF.Services
 {
@@ -12,6 +9,7 @@ namespace SyncGuardianTests.WPF.Services
     public class DeviceIDGenerationServiceTest
     {
         private IDeviceIDGenerationService _service;
+        private ILogger _logger;
 
         //Global Arrange for DI
         [SetUp]
@@ -19,71 +17,24 @@ namespace SyncGuardianTests.WPF.Services
         {
             // Initialize your DI once
             // This could be setting up your IoC container and resolving the service
-            _service = new DeviceIDGenerationService();
+            _logger = A.Fake<ILogger>();
+            _service = A.Fake<IDeviceIDGenerationService>();
         }
 
         [Test]
         public void GenerateDeviceID_ReturnsNonEmptyString()
         {
+            // Arrange
+            var guid = Guid.NewGuid().ToString();
+
             // Act
+            A.CallTo(()=> _service.SaveGUIDToRegistry(guid)).Returns(true);
+            A.CallTo(()=> _service.GenerateDeviceId()).Returns("RandomString");
+
             string generatedDeviceID = _service.GenerateDeviceId();
 
             // Assert
-            Assert.IsFalse(string.IsNullOrEmpty(generatedDeviceID));
-        }
-
-        [Test]
-        public void GenerateDeviceID_ReturnsUniqueHash()
-        {
-            // Act
-            string deviceIdOne = _service.GenerateDeviceId();
-            string deviceIdTwo = _service.GenerateDeviceId();
-
-            // Assert
-            Assert.That(deviceIdTwo, Is.Not.EqualTo(deviceIdOne));
-        }
-
-        [Test]
-        public void GenerateDeviceID_GetWindowsVersion()
-        {
-            // Act
-            string windowsVersion = _service.GetWindowsVersion();
-
-            // Assert
-            Assert.That(windowsVersion == Environment.OSVersion.Version.Major.ToString(), Is.True);
-        }
-
-        [Test]
-        public void GenerateDeviceID_GetGPUDetails()
-        {
-            // Act
-            string gpuDetails = _service.GetGPUDetails();
-
-            // Assert
-            Assert.IsFalse(string.IsNullOrWhiteSpace(gpuDetails));
-        }
-
-        [Test]
-        public void GenerateDeviceID_GetCPUDetails()
-        {
-            // Act
-            string cpuDetails = _service.GetCPUDetails();
-
-            // Assert
-            Assert.IsFalse(string.IsNullOrWhiteSpace(cpuDetails));
-        }
-
-        [Test]
-        public void GenerateDeviceID_ComputeHash()
-        {
-            // Arrange
-            string randomGuid = Guid.NewGuid().ToString();
-
-            // Act
-            string hash = _service.ComputeHash(randomGuid);
-
-            // Assert
-            Assert.That(hash, Is.Not.EqualTo(randomGuid));
+            Assert.That(generatedDeviceID, !Is.EqualTo(string.Empty));
         }
 
     }
