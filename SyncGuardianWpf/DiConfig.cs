@@ -25,6 +25,7 @@ namespace SyncGuardianWpf
 
             // OtherServiceDI
             services.AddSingleton<IDeviceIDGenerationService,DeviceIDGenerationService>();
+            services.AddSingleton<IQRCodeGenerationService,QRCodeGenerationService>();
         }
 
         private static void EnsureDirectoryExists(string filePath)
