@@ -6,7 +6,28 @@
         xmlns:local="clr-namespace:SyncGuardianWpf"
         mc:Ignorable="d"
         Title="SplashWindow" Height="Auto" Width="Auto" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#10171f">
+
+    <Window.Resources>
+        <Storyboard x:Key="RotationAnimation">
+            <DoubleAnimation Storyboard.TargetName="Spinner"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                             From="0" To="360" Duration="0:0:2" RepeatBehavior="Forever" />
+        </Storyboard>
+    </Window.Resources>
     <Grid>
-        <Image Source="Assets/Logo_4k.jpg" Margin="20"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Image displayed above the loading icon -->
+        <Image Source="Assets/Logo_4k.jpg" Margin="20" Stretch="Uniform" VerticalAlignment="Top"/>
+
+        <!-- Loading icon at the bottom center -->
+        <Image Grid.Row="1" x:Name="Spinner" Source="Assets/Loading.png" Width="50" Height="50" HorizontalAlignment="Center" Margin="5">
+            <Image.RenderTransform>
+                <RotateTransform CenterX="25" CenterY="25" Angle="0"/>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </Window>

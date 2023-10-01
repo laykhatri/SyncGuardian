@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -22,6 +23,13 @@ namespace SyncGuardianWpf
         public SplashWindow()
         {
             InitializeComponent();
+            Loaded += SplashWindow_Loaded;
+        }
+
+        private void SplashWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var rotationAnimation = (Storyboard)FindResource("RotationAnimation");
+            rotationAnimation.Begin();
         }
     }
 }
