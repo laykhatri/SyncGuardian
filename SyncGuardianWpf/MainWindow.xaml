@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SyncGuardianWpf"
         mc:Ignorable="d"
-        Title="SyncGuardian" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="SyncGuardian" Height="Auto" Width="Auto" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Frame x:Name="MainFrame">
+        
+    </Frame>
 </Window>
