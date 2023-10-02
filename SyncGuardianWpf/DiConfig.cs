@@ -2,6 +2,8 @@
 using Serilog;
 using SyncGuardianWpf.Services;
 using SyncGuardianWpf.Services.Interfaces;
+using SyncGuardianWpf.ViewModels;
+using SyncGuardianWpf.Views;
 using System.IO;
 
 namespace SyncGuardianWpf
@@ -22,10 +24,15 @@ namespace SyncGuardianWpf
             // MainWindow DI
             services.AddSingleton<MainWindow>();
             services.AddSingleton<SplashWindow>();
+            services.AddSingleton<InitialSetupView>();
+
+            // ViewModel
+            services.AddSingleton<InitialSetupViewModel>();
 
             // OtherServiceDI
-            services.AddSingleton<IDeviceIDGenerationService,DeviceIDGenerationService>();
-            services.AddSingleton<IQRCodeGenerationService,QRCodeGenerationService>();
+            services.AddTransient<IDeviceIDGenerationService,DeviceIDGenerationService>();
+            services.AddTransient<IQRCodeGenerationService,QRCodeGenerationService>();
+            services.AddTransient<INetworkInterfaceService,NetworkInterfaceService>();
         }
 
         private static void EnsureDirectoryExists(string filePath)
