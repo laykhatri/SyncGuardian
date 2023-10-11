@@ -1,12 +1,11 @@
 ﻿using FakeItEasy;
 using Serilog;
-using SyncGuardianWpf.Services;
 using SyncGuardianWpf.Services.Interfaces;
 
 namespace SyncGuardianTests.WPF.Services
 {
     [TestFixture]
-    public class DeviceIDGenerationServiceTest
+    public class DeviceIDGenerationServiceTests
     {
         private IDeviceIDGenerationService _service;
         private ILogger _logger;

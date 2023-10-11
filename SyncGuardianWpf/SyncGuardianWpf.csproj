@@ -7,6 +7,14 @@
     <UseWPF>true</UseWPF>
     <PackageIcon>Logo_1024.jpg</PackageIcon>
     <ApplicationIcon>Assets\Logo_4kUpscaled.ico</ApplicationIcon>
+    <Version>0.0.1</Version>
+    <Title>SyncGuardian</Title>
+    <Authors>LayKhatri</Authors>
+    <Company>LayKhatri</Company>
+    <Product>SyncGuardian</Product>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/laykhatri/SyncGuardian</RepositoryUrl>
+    <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +36,13 @@
       <PackagePath>\</PackagePath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
