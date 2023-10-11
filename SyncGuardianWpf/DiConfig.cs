@@ -33,6 +33,7 @@ namespace SyncGuardianWpf
             services.AddTransient<IDeviceIDGenerationService,DeviceIDGenerationService>();
             services.AddTransient<IQRCodeGenerationService,QRCodeGenerationService>();
             services.AddTransient<INetworkInterfaceService,NetworkInterfaceService>();
+            services.AddTransient<IAssemblyVersionInfo,AssemblyVersionInfo>();
         }
 
         private static void EnsureDirectoryExists(string filePath)

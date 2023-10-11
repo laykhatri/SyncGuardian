@@ -7,20 +7,19 @@ using System.Windows;
 
 namespace SyncGuardianWpf
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly ILogger _logger;
         private readonly IDeviceIDGenerationService _deviceIDGeneration;
         private readonly IServiceProvider _serviceProvider;
+        private readonly IAssemblyVersionInfo _assemblyVersionInfo;
 
-        public MainWindow(ILogger logger, IDeviceIDGenerationService deviceIDGeneration, IServiceProvider serviceProvider)
+        public MainWindow(ILogger logger, IDeviceIDGenerationService deviceIDGeneration, IServiceProvider serviceProvider, IAssemblyVersionInfo assemblyVersionInfo)
         {
             _logger = logger;
             _deviceIDGeneration = deviceIDGeneration;
             _serviceProvider = serviceProvider;
+            _assemblyVersionInfo = assemblyVersionInfo;
             InitializeComponent();
         }
 
