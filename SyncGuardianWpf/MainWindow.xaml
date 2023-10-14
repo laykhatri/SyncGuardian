@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SyncGuardianWpf"
         mc:Ignorable="d"
-        Title="SyncGuardian" Height="Auto" Width="Auto" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
-    <Frame x:Name="MainFrame">
-        
-    </Frame>
+        Height="Auto" Width="Auto" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0">
+            <Grid>
+                <local:TitleBar />
+            </Grid>
+        </Border>
+
+        <Frame Grid.Row="1" x:Name="MainFrame" Margin="0,40,0,0">
+            <!-- Content will be loaded into this Frame -->
+        </Frame>
+    </Grid>
 </Window>
