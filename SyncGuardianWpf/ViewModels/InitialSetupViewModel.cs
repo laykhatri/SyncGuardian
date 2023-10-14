@@ -22,7 +22,7 @@ namespace SyncGuardianWpf.ViewModels
             InitialSetup();
         }
 
-        private void InitialSetup()
+        public void InitialSetup()
         {
             _logger.Information("Checking is device connected to any network");
             if (!_networkService.IsNetworkConnected())
