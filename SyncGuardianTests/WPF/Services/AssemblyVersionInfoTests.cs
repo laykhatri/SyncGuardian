@@ -14,10 +14,11 @@ namespace SyncGuardianTests.WPF.Services
             _assemblyVersionInfo = A.Fake<IAssemblyVersionInfo>();
         }
 
-        [Test] public void GetVersionInfo()
+        [Test]
+        public void GetVersionInfo()
         {
             // Arrange
-            A.CallTo(()=> _assemblyVersionInfo.GetVersionInfo()).Returns("0.0.1");
+            A.CallTo(() => _assemblyVersionInfo.GetVersionInfo()).Returns("0.0.1");
 
             // Act
             var result = _assemblyVersionInfo.GetVersionInfo();

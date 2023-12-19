@@ -25,10 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Android\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\SyncGuardianMobile\SyncGuardianMobile\SyncGuardianMobile.csproj" />
     <ProjectReference Include="..\SyncGuardianWpf\SyncGuardianWpf.csproj" />
   </ItemGroup>
 

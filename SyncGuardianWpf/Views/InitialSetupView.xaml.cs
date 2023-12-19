@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Serilog;
-using SyncGuardianWpf.Services.Interfaces;
 using SyncGuardianWpf.ViewModels;
 using System;
 using System.Windows.Controls;
