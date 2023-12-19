@@ -1,8 +1,6 @@
-﻿using SyncGuardianMobile.ViewModels;
-using SyncGuardianMobile.Views;
+﻿using Android.Util;
+using SyncGuardianMobile.Services.Interface;
 using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
 
 namespace SyncGuardianMobile
 {
