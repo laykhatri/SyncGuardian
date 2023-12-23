@@ -16,12 +16,8 @@ namespace SyncGuardianMobile.Views
             _serviceProvider = serviceProvider;
             _viewModel = _serviceProvider.GetRequiredService<InitialSetupViewModel>();
             BindingContext = _viewModel;
-            InitializeComponent();
-        }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-           App.Current.MainPage = _serviceProvider.GetRequiredService<AppShell>();
+            InitializeComponent();
         }
     }
 }
