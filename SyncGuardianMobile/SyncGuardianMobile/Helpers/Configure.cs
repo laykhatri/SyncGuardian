@@ -16,6 +16,7 @@ namespace SyncGuardianMobile.Droid
             // Services
             servicesCollection.AddTransient<IDeviceIDGenerator,DeviceIDGenerator>();
             servicesCollection.AddTransient<IAssemblyVersionInfo,AssemblyVersionInfo>();
+            servicesCollection.AddTransient<IQrScanning,QrScanning>();
             servicesCollection.AddTransient<Log>();
 
             // Pages
