@@ -2,6 +2,11 @@
 
 namespace SyncGuardianMobile.Helpers
 {
+    public static class UrlConstants
+    {
+        public const string GIT_REPO_RELEASES = "https://github.com/laykhatri/SyncGuardian/releases";
+        public const string GIT_REPO = "https://github.com/laykhatri/SyncGuardian";
+    }
     public static class SharedPrefsConstants
     {
         public const string DEFAULT_PREFS = "SyncGuardianPrefs";
@@ -11,10 +16,17 @@ namespace SyncGuardianMobile.Helpers
     public static class InitialSetup_NavStore
     {
         public const string INTRODUCTION = "Introduction";
+        public const string PERMISSION = "Permission";
+        public const string CONNECTION = "Connection";
+        public const string SUMMARY = "Summary";
 
-        public static HashSet<string> InitialSetup_Pages = new HashSet<string>()
+
+        public static IReadOnlyCollection<string> InitialSetup_Pages = new List<string>()
         {
-            INTRODUCTION
+            INTRODUCTION,
+            PERMISSION,
+            CONNECTION,
+            SUMMARY
         };
     }
 }
