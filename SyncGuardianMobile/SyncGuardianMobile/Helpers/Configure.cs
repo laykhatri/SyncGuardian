@@ -4,6 +4,7 @@ using SyncGuardianMobile.Services;
 using SyncGuardianMobile.Services.Interface;
 using SyncGuardianMobile.ViewModels;
 using SyncGuardianMobile.Views;
+using System.Net.Http;
 
 namespace SyncGuardianMobile.Droid
 {
@@ -17,6 +18,8 @@ namespace SyncGuardianMobile.Droid
             servicesCollection.AddTransient<IDeviceIDGenerator,DeviceIDGenerator>();
             servicesCollection.AddTransient<IAssemblyVersionInfo,AssemblyVersionInfo>();
             servicesCollection.AddTransient<IQrScanning,QrScanning>();
+            servicesCollection.AddTransient<IHttpService,HttpService>();
+            servicesCollection.AddTransient<HttpClient>();
             servicesCollection.AddTransient<Log>();
 
             // Pages
