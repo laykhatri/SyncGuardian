@@ -9,7 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyncGuardianMobile", "SyncG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncGuardianMobile.Android", "SyncGuardianMobile\SyncGuardianMobile.Android\SyncGuardianMobile.Android.csproj", "{B497E19F-98A2-453C-9476-FF8F47698799}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncGuardianTests", "SyncGuardianTests\SyncGuardianTests.csproj", "{5B54D319-E01F-4A08-8476-8BDD227960B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyncGuardianTests", "SyncGuardianTests\SyncGuardianTests.csproj", "{5B54D319-E01F-4A08-8476-8BDD227960B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyncGuardian.Desktop", "SyncGuardian.Desktop\SyncGuardian.Desktop.csproj", "{8E8602FF-5E4F-4829-B651-90C91ABB4CB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncGuardian.Mobile", "SyncGuardian.Mobile\SyncGuardian.Mobile\SyncGuardian.Mobile.csproj", "{7AEDC206-D3A0-4013-89CE-E10DDC14C1DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncGuardian.Mobile.Android", "SyncGuardian.Mobile\SyncGuardian.Mobile.Android\SyncGuardian.Mobile.Android.csproj", "{8A5AD731-A3C1-4629-9EBD-6A850EA85753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncGuardian.Mobile.iOS", "SyncGuardian.Mobile\SyncGuardian.Mobile.iOS\SyncGuardian.Mobile.iOS.csproj", "{3E96FA79-77E6-47C9-A630-35025DC06323}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +43,24 @@ Global
 		{5B54D319-E01F-4A08-8476-8BDD227960B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B54D319-E01F-4A08-8476-8BDD227960B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B54D319-E01F-4A08-8476-8BDD227960B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E8602FF-5E4F-4829-B651-90C91ABB4CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E8602FF-5E4F-4829-B651-90C91ABB4CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E8602FF-5E4F-4829-B651-90C91ABB4CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E8602FF-5E4F-4829-B651-90C91ABB4CB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AEDC206-D3A0-4013-89CE-E10DDC14C1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AEDC206-D3A0-4013-89CE-E10DDC14C1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AEDC206-D3A0-4013-89CE-E10DDC14C1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AEDC206-D3A0-4013-89CE-E10DDC14C1DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A5AD731-A3C1-4629-9EBD-6A850EA85753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A5AD731-A3C1-4629-9EBD-6A850EA85753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A5AD731-A3C1-4629-9EBD-6A850EA85753}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8A5AD731-A3C1-4629-9EBD-6A850EA85753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A5AD731-A3C1-4629-9EBD-6A850EA85753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A5AD731-A3C1-4629-9EBD-6A850EA85753}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3E96FA79-77E6-47C9-A630-35025DC06323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E96FA79-77E6-47C9-A630-35025DC06323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E96FA79-77E6-47C9-A630-35025DC06323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E96FA79-77E6-47C9-A630-35025DC06323}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
