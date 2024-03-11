@@ -7,10 +7,26 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
+	<ItemGroup>
+	<ItemGroup>
+		<None Remove="Assets\Loading.png" />
+		<None Remove="Assets\Logo_4k.jpg" />
+		<None Remove="Assets\Logo_4kUpscaled.ico" />
+	</ItemGroup>
+		<Content Include="Assets\Loading.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Assets\Logo_4k.jpg">
+			<PackagePath>\</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Pack>True</Pack>
+		</Content>
+		<Content Include="Assets\Logo_4kUpscaled.ico" />
+	</ItemGroup>
 
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.6" />
+		<PackageReference Include="Avalonia" Version="11.0.10" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.6" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.6" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.6" />
