@@ -99,12 +99,6 @@
     <AndroidResource Include="Resources\drawable\icon_feed.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SyncGuardianMobile\SyncGuardianMobile.csproj">
-      <Project>{41E8A543-C56D-4C8E-87D4-DBB35E60DFC9}</Project>
-      <Name>SyncGuardianMobile</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\mipmap-hdpi\launcher_background.png" />
   </ItemGroup>
   <ItemGroup>
