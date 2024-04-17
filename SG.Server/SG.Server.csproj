@@ -14,7 +14,8 @@
     <Folder Include="Commands\" />
     <Folder Include="Converters\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Services\" />
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="Services\Implementations\" />
   </ItemGroup>
 
 
