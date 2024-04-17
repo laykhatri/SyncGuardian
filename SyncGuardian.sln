@@ -3,7 +3,52 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SG.Server", "SG.Server\SG.Server.csproj", "{298BA092-8C39-4093-88CC-5845E336B6FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SG.Client", "SG.Client\SG.Client\SG.Client.csproj", "{F04533D1-8CEF-45FD-B0D2-39F2D2E24C7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SG.Client.Android", "SG.Client\SG.Client.Android\SG.Client.Android.csproj", "{B0081A24-9FFA-4CF1-B457-3EC3321DD11D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SG.Client.iOS", "SG.Client\SG.Client.iOS\SG.Client.iOS.csproj", "{DDB0C106-2980-4313-BF1E-0C170BF1C675}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E8E04398-B7CD-48EC-BCBB-58FBAA793BF7}"
+	ProjectSection(SolutionItems) = preProject
+		Contributing.md = Contributing.md
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SG.Tests", "SG.Tests\SG.Tests.csproj", "{0BE5EA02-31D5-42F3-ADE4-9BA66F505588}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{298BA092-8C39-4093-88CC-5845E336B6FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{298BA092-8C39-4093-88CC-5845E336B6FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{298BA092-8C39-4093-88CC-5845E336B6FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{298BA092-8C39-4093-88CC-5845E336B6FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F04533D1-8CEF-45FD-B0D2-39F2D2E24C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F04533D1-8CEF-45FD-B0D2-39F2D2E24C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F04533D1-8CEF-45FD-B0D2-39F2D2E24C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F04533D1-8CEF-45FD-B0D2-39F2D2E24C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0081A24-9FFA-4CF1-B457-3EC3321DD11D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0081A24-9FFA-4CF1-B457-3EC3321DD11D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0081A24-9FFA-4CF1-B457-3EC3321DD11D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B0081A24-9FFA-4CF1-B457-3EC3321DD11D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0081A24-9FFA-4CF1-B457-3EC3321DD11D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0081A24-9FFA-4CF1-B457-3EC3321DD11D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DDB0C106-2980-4313-BF1E-0C170BF1C675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDB0C106-2980-4313-BF1E-0C170BF1C675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDB0C106-2980-4313-BF1E-0C170BF1C675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDB0C106-2980-4313-BF1E-0C170BF1C675}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE5EA02-31D5-42F3-ADE4-9BA66F505588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE5EA02-31D5-42F3-ADE4-9BA66F505588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE5EA02-31D5-42F3-ADE4-9BA66F505588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE5EA02-31D5-42F3-ADE4-9BA66F505588}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
