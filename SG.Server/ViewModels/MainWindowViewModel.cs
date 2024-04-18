@@ -1,9 +1,29 @@
-﻿namespace SG.Server.ViewModels
+﻿using ReactiveUI;
+
+namespace SG.Server.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-#pragma warning disable CA1822 // Mark members as static
-        public string Greeting => "Welcome to Avalonia!";
-#pragma warning restore CA1822 // Mark members as static
+        public IReactiveCommand _navigationCommand { get; }
+
+        public MainWindowViewModel()
+        {
+            _navigationCommand = ReactiveCommand.Create<ViewModelBase>(NaviagteToPage);
+        }
+
+        private ViewModelBase _currentViewModel = default!;
+        public ViewModelBase CurrentViewModel
+        {
+            get => _currentViewModel;
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _currentViewModel, value);
+            }
+        }
+
+        public void NaviagteToPage(ViewModelBase viewModel)
+        {
+            CurrentViewModel = viewModel;
+        }
     }
 }

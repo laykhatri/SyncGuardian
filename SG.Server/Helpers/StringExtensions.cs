@@ -29,5 +29,10 @@ namespace SG.Server.Helpers
                 return builder.ToString();
             }
         }
+
+        internal static bool IsNullOrWhiteSpace(this string value)
+        {
+            return string.IsNullOrWhiteSpace(value);
+        }
     }
 }

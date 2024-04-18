@@ -2,7 +2,6 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
-using SG.Server.ViewModels;
 using SG.Server.Views;
 
 namespace SG.Server
@@ -10,6 +9,7 @@ namespace SG.Server
     public partial class App : Application
     {
         private ServiceProvider? _serviceProvider;
+
         public override void Initialize()
         {
             var serviceCollection = new ServiceCollection();
@@ -20,12 +20,10 @@ namespace SG.Server
 
         public override void OnFrameworkInitializationCompleted()
         {
+
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow
-                {
-                    DataContext = _serviceProvider?.GetRequiredService<MainWindowViewModel>()
-                };
+                desktop.MainWindow = _serviceProvider!.GetRequiredService<MainWindow>();
             }
 
             base.OnFrameworkInitializationCompleted();

@@ -3,6 +3,7 @@ using Serilog;
 using SG.Server.Services.Implementations;
 using SG.Server.Services.Interfaces;
 using SG.Server.ViewModels;
+using SG.Server.Views;
 using System.IO;
 
 namespace SG.Server
@@ -11,7 +12,7 @@ namespace SG.Server
     {
         public static void ConfigureServices(IServiceCollection services)
         {
-            // Logger Service
+            #region Logger Service
             var logFilePath = "Logs\\SyncGuardian-.txt";
 
             var directory = Path.GetDirectoryName(logFilePath);
@@ -24,13 +25,24 @@ namespace SG.Server
                 .WriteTo.File(logFilePath, fileSizeLimitBytes: 10 * 1024 * 1024, rollingInterval: RollingInterval.Day, retainedFileCountLimit: 10, retainedFileTimeLimit: System.TimeSpan.FromDays(7))
                 .CreateLogger();
             services.AddSingleton(logger);
+            #endregion
 
-            // ViewModels
+            #region Windows / Views
+            services.AddSingleton<MainWindow>();
+            services.AddSingleton<InitialSetupView>();
+            #endregion
+
+            #region ViewModels
             services.AddSingleton<MainWindowViewModel>();
+            services.AddSingleton<InitialSetupViewModel>();
+            #endregion
 
-            // Services
+            #region Services
             services.AddSingleton<IAssemblyVersionInfo, AssemblyVersionInfo>();
             services.AddSingleton<INetworkInterfaceService, NetworkInterfaceService>();
+            services.AddSingleton<IDeviceIDGenerationService, DeviceIDGenerationService>();
+            #endregion
+
         }
     }
 }
