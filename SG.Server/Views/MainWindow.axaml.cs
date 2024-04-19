@@ -27,12 +27,7 @@ namespace SG.Server.Views
 
         protected override void OnLoaded(RoutedEventArgs e)
         {
-            if (_deviceIDGeneration.NeedInitialSetup())
-            {
-                var InitialSetupView = _serviceProvider.GetRequiredService<InitialSetupViewModel>();
-                var viewModel = DataContext as MainWindowViewModel;
-
-            }
+            _viewModel.InitialSetupCheck();
         }
     }
 }

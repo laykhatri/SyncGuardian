@@ -1,29 +1,34 @@
-﻿using ReactiveUI;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SG.Server.Services.Interfaces;
+using System;
 
 namespace SG.Server.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public IReactiveCommand _navigationCommand { get; }
+        private readonly IServiceProvider _serviceProvider;
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IServiceProvider serviceProvider)
         {
-            _navigationCommand = ReactiveCommand.Create<ViewModelBase>(NaviagteToPage);
+            _serviceProvider = serviceProvider;
         }
 
-        private ViewModelBase _currentViewModel = default!;
-        public ViewModelBase CurrentViewModel
+        public void InitialSetupCheck()
         {
-            get => _currentViewModel;
-            set
+            if (NeedInitialSetup())
             {
-                this.RaiseAndSetIfChanged(ref _currentViewModel, value);
+                CurrentPage = _serviceProvider.GetRequiredService<InitialSetupView>();
+            }
+            else
+            {
+                CurrentPage = _serviceProvider.GetRequiredService<HomePageView>();
             }
         }
 
-        public void NaviagteToPage(ViewModelBase viewModel)
+        private bool NeedInitialSetup()
         {
-            CurrentViewModel = viewModel;
+            var deviceGeneration = _serviceProvider.GetRequiredService<IDeviceIDGenerationService>();
+            return deviceGeneration.NeedInitialSetup();
         }
     }
 }

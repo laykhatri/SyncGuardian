@@ -30,11 +30,13 @@ namespace SG.Server
             #region Windows / Views
             services.AddSingleton<MainWindow>();
             services.AddSingleton<InitialSetupView>();
+            services.AddSingleton<HomePageView>();
             #endregion
 
             #region ViewModels
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<InitialSetupViewModel>();
+            services.AddSingleton<HomePageViewModel>();
             #endregion
 
             #region Services
