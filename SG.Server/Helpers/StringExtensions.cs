@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 
 namespace SG.Server.Helpers
 {
@@ -33,6 +34,19 @@ namespace SG.Server.Helpers
         internal static bool IsNullOrWhiteSpace(this string value)
         {
             return string.IsNullOrWhiteSpace(value);
+        }
+
+        internal static bool IsValidJson(this string input)
+        {
+            try
+            {
+                JsonDocument.Parse(input);
+                return true;
+            }
+            catch (JsonException)
+            {
+                return false;
+            }
         }
     }
 }
