@@ -35,5 +35,8 @@
     <Compile Update="Views\InitialSetup.axaml.cs">
       <DependentUpon>InitialSetup.axaml</DependentUpon>
     </Compile>
+	  <Compile Update="Views\HomePage.axaml.cs">
+      <DependentUpon>HomePage.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

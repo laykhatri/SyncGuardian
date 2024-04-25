@@ -8,13 +8,17 @@ namespace SG.Server
 {
     public partial class App : Application
     {
-        private ServiceProvider? _serviceProvider;
+        public static ServiceProvider ServiceProvider { get; private set; } = null!;
 
-        public override void Initialize()
+        public App()
         {
             var serviceCollection = new ServiceCollection();
             Bootstrapper.ConfigureServices(serviceCollection);
-            _serviceProvider = serviceCollection.BuildServiceProvider();
+            ServiceProvider = serviceCollection.BuildServiceProvider();
+        }
+
+        public override void Initialize()
+        {
             AvaloniaXamlLoader.Load(this);
         }
 
@@ -23,7 +27,7 @@ namespace SG.Server
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = _serviceProvider!.GetRequiredService<MainWindow>();
+                desktop.MainWindow = ServiceProvider!.GetRequiredService<MainWindow>();
             }
 
             base.OnFrameworkInitializationCompleted();
