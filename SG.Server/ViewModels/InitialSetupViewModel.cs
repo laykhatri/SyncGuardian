@@ -1,7 +1,11 @@
-﻿using ReactiveUI;
+﻿using Avalonia.Media.Imaging;
+using Microsoft.Extensions.DependencyInjection;
+using ReactiveUI;
 using Serilog;
 using SG.Server.Helpers;
+using SG.Server.Models;
 using SG.Server.Services.Interfaces;
+using System.Text.Json;
 
 namespace SG.Server.ViewModels
 {
@@ -11,12 +15,13 @@ namespace SG.Server.ViewModels
         private readonly INetworkInterfaceService _networkService;
         private readonly IDeviceIDGenerationService _deviceIDGenerationService;
         private readonly IQRCodeGenerationService _qrCodeGenerationService;
-        public InitialSetupViewModel(ILogger logger, INetworkInterfaceService networkService, IDeviceIDGenerationService deviceIDGenerationService, IQRCodeGenerationService qrCodeGenerationService)
+
+        public InitialSetupViewModel()
         {
-            _logger = logger;
-            _networkService = networkService;
-            _deviceIDGenerationService = deviceIDGenerationService;
-            _qrCodeGenerationService = qrCodeGenerationService;
+            _logger = App.ServiceProvider.GetRequiredService<ILogger>();
+            _networkService = App.ServiceProvider.GetRequiredService<INetworkInterfaceService>();
+            _deviceIDGenerationService = App.ServiceProvider.GetRequiredService<IDeviceIDGenerationService>();
+            _qrCodeGenerationService = App.ServiceProvider.GetRequiredService<IQRCodeGenerationService>();
             InitialSetup();
         }
 
@@ -31,13 +36,14 @@ namespace SG.Server.ViewModels
             }
             else
             {
-                IsSetupGridVisible = true;
-                _logger.Information("Generating ");
+                _logger.Information("Generating QrCode to scan");
                 var deviceId = _deviceIDGenerationService.GenerateDeviceId();
                 if (!deviceId.IsNullOrWhiteSpace())
                 {
-
+                    var QRCodeInfo = new SetupQrCodeModel() { DeviceHash = deviceId, Port = 54214, Protocal = "HTTPS", NetworkAddress = _networkService.GetLocalIpAddress() };
+                    QRCodeImage = _qrCodeGenerationService.GenerateQRCodeAndConvertToBitmapImage(JsonSerializer.Serialize(QRCodeInfo));
                 }
+                IsSetupGridVisible = true;
             }
         }
         #endregion
@@ -50,6 +56,15 @@ namespace SG.Server.ViewModels
             get { return _isSetupGridVisible; }
             set { this.RaiseAndSetIfChanged(ref _isSetupGridVisible, value); }
         }
+
+        private Bitmap? _qrCode;
+
+        public Bitmap? QRCodeImage
+        {
+            get { return _qrCode; }
+            set { this.RaiseAndSetIfChanged(ref _qrCode, value); }
+        }
+
 
         #endregion
     }

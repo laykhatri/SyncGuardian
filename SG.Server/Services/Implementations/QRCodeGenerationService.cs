@@ -51,9 +51,9 @@ namespace SG.Server.Services.Implementations
 
             try
             {
-                var qrCode = QrCode.EncodeText(jsonInput, QrCode.Ecc.Medium);
+                var qrCode = QrCode.EncodeText(jsonInput, QrCode.Ecc.Low);
 
-                return qrCode.ToBmpBitmap();
+                return qrCode.ToBmpBitmap(3, 10);
             }
             catch (Exception ex)
             {

@@ -43,6 +43,7 @@ namespace SG.Server
             services.AddSingleton<IAssemblyVersionInfo, AssemblyVersionInfo>();
             services.AddSingleton<INetworkInterfaceService, NetworkInterfaceService>();
             services.AddSingleton<IDeviceIDGenerationService, DeviceIDGenerationService>();
+            services.AddSingleton<IQRCodeGenerationService, QRCodeGenerationService>();
             #endregion
 
         }
