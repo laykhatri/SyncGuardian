@@ -24,7 +24,7 @@ namespace SG.Tests.Server.Services
             var testData = new { column1 = 1, column2 = 2 };
             var qrCode = _qrCodeGenerationService.GenerateQRCodeImage(JsonSerializer.Serialize(testData));
 
-            Assert.IsNotNull(qrCode);
+            Assert.That(qrCode, Is.Not.Null);
         }
 
         [Test]
@@ -33,8 +33,8 @@ namespace SG.Tests.Server.Services
             var testData = "helloworld";
             var qrCode = _qrCodeGenerationService.GenerateQRCodeImage(JsonSerializer.Serialize(testData));
 
-            Assert.IsNotNull(qrCode);
-            Assert.IsTrue(qrCode.Length == 0);
+            Assert.That(qrCode, Is.Not.Null);
+            Assert.That(qrCode.Length, Is.GreaterThan(0));
         }
     }
 }
