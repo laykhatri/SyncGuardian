@@ -33,6 +33,11 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\SG.Common\SG.Common.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
     <Compile Update="Views\InitialSetup.axaml.cs">
       <DependentUpon>InitialSetup.axaml</DependentUpon>
     </Compile>

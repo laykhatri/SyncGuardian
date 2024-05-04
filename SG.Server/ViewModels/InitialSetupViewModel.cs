@@ -2,8 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
 using Serilog;
+using SG.Common.Models;
 using SG.Server.Helpers;
-using SG.Server.Models;
 using SG.Server.Services.Interfaces;
 using System.Text.Json;
 

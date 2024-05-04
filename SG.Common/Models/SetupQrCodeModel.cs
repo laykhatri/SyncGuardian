@@ -1,6 +1,6 @@
-﻿namespace SG.Server.Models
+﻿namespace SG.Common.Models
 {
-    internal class SetupQrCodeModel
+    public class SetupQrCodeModel
     {
         public string DeviceHash { get; set; } = default!;
         public string NetworkAddress { get; set; } = default!;
