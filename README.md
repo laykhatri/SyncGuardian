@@ -48,7 +48,7 @@ Thank you for contributing to SyncGuardian! Your support helps make this project
 ---
 ### Testing
 
-We maintain a comprehensive set of tests to ensure the stability and functionality of SyncGuardian. We have separate test projects for the WPF application and the mobile applications.
+We maintain a comprehensive set of tests to ensure the stability and functionality of SyncGuardian. We have separate test projects for the Desktop and Mobile applications.
 
 Testing Project is named "SG.Tests"
 
