@@ -3,13 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyncGuardianWpf", "SyncGuardianWpf\SyncGuardianWpf.csproj", "{C4C2C289-1D64-49C5-8E86-1BB6154F880D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SG.Server", "SG.Server\SG.Server.csproj", "{298BA092-8C39-4093-88CC-5845E336B6FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyncGuardianMobile", "SyncGuardianMobile\SyncGuardianMobile\SyncGuardianMobile.csproj", "{31DE205B-2F83-4B8F-AC8C-5F9B85E64EE4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E8E04398-B7CD-48EC-BCBB-58FBAA793BF7}"
+	ProjectSection(SolutionItems) = preProject
+		Contributing.md = Contributing.md
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncGuardianMobile.Android", "SyncGuardianMobile\SyncGuardianMobile.Android\SyncGuardianMobile.Android.csproj", "{B497E19F-98A2-453C-9476-FF8F47698799}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SG.Tests", "SG.Tests\SG.Tests.csproj", "{0BE5EA02-31D5-42F3-ADE4-9BA66F505588}"
+	ProjectSection(ProjectDependencies) = postProject
+		{298BA092-8C39-4093-88CC-5845E336B6FE} = {298BA092-8C39-4093-88CC-5845E336B6FE}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncGuardianTests", "SyncGuardianTests\SyncGuardianTests.csproj", "{5B54D319-E01F-4A08-8476-8BDD227960B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SG.Client", "SG.Client\SG.Client\SG.Client.csproj", "{6AA30BAC-A9C6-4AA7-A934-AE7A5B28C244}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SG.Client.Android", "SG.Client\SG.Client.Android\SG.Client.Android.csproj", "{C69C7DD8-DC05-4BD9-A269-8061AC2CF7F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SG.Client.iOS", "SG.Client\SG.Client.iOS\SG.Client.iOS.csproj", "{E6C7D7CF-7F68-4340-AA50-1854024BA3A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SG.Common", "SG.Common\SG.Common.csproj", "{92A772AF-B1C7-43FB-8CC0-68B3A127AC05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,24 +31,32 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C4C2C289-1D64-49C5-8E86-1BB6154F880D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4C2C289-1D64-49C5-8E86-1BB6154F880D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4C2C289-1D64-49C5-8E86-1BB6154F880D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4C2C289-1D64-49C5-8E86-1BB6154F880D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31DE205B-2F83-4B8F-AC8C-5F9B85E64EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31DE205B-2F83-4B8F-AC8C-5F9B85E64EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31DE205B-2F83-4B8F-AC8C-5F9B85E64EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31DE205B-2F83-4B8F-AC8C-5F9B85E64EE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B497E19F-98A2-453C-9476-FF8F47698799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B497E19F-98A2-453C-9476-FF8F47698799}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B497E19F-98A2-453C-9476-FF8F47698799}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{B497E19F-98A2-453C-9476-FF8F47698799}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B497E19F-98A2-453C-9476-FF8F47698799}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B497E19F-98A2-453C-9476-FF8F47698799}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{5B54D319-E01F-4A08-8476-8BDD227960B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B54D319-E01F-4A08-8476-8BDD227960B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B54D319-E01F-4A08-8476-8BDD227960B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B54D319-E01F-4A08-8476-8BDD227960B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{298BA092-8C39-4093-88CC-5845E336B6FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{298BA092-8C39-4093-88CC-5845E336B6FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{298BA092-8C39-4093-88CC-5845E336B6FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{298BA092-8C39-4093-88CC-5845E336B6FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE5EA02-31D5-42F3-ADE4-9BA66F505588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE5EA02-31D5-42F3-ADE4-9BA66F505588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE5EA02-31D5-42F3-ADE4-9BA66F505588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE5EA02-31D5-42F3-ADE4-9BA66F505588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AA30BAC-A9C6-4AA7-A934-AE7A5B28C244}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AA30BAC-A9C6-4AA7-A934-AE7A5B28C244}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AA30BAC-A9C6-4AA7-A934-AE7A5B28C244}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AA30BAC-A9C6-4AA7-A934-AE7A5B28C244}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69C7DD8-DC05-4BD9-A269-8061AC2CF7F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69C7DD8-DC05-4BD9-A269-8061AC2CF7F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69C7DD8-DC05-4BD9-A269-8061AC2CF7F4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C69C7DD8-DC05-4BD9-A269-8061AC2CF7F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69C7DD8-DC05-4BD9-A269-8061AC2CF7F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69C7DD8-DC05-4BD9-A269-8061AC2CF7F4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E6C7D7CF-7F68-4340-AA50-1854024BA3A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6C7D7CF-7F68-4340-AA50-1854024BA3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6C7D7CF-7F68-4340-AA50-1854024BA3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6C7D7CF-7F68-4340-AA50-1854024BA3A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A772AF-B1C7-43FB-8CC0-68B3A127AC05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A772AF-B1C7-43FB-8CC0-68B3A127AC05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A772AF-B1C7-43FB-8CC0-68B3A127AC05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A772AF-B1C7-43FB-8CC0-68B3A127AC05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -48,16 +48,16 @@ Thank you for contributing to SyncGuardian! Your support helps make this project
 ---
 ### Testing
 
-We maintain a comprehensive set of tests to ensure the stability and functionality of SyncGuardian. We have separate test projects for the WPF application and the mobile applications.
+We maintain a comprehensive set of tests to ensure the stability and functionality of SyncGuardian. We have separate test projects for the Desktop and Mobile applications.
 
-Testing Project is named "SyncGuardianTests"
+Testing Project is named "SG.Tests"
 
-Over there you will find 2 folders, "WPF" and "Android" respectively. When ever you create a new functionality or service, you will need to create test cases for those. 
+Over there you will find 2 folders, "Server" and "Client.Android" respectively. When ever you create a new functionality or service, you will need to create test cases for those. 
 
-SyncGuardianTests is a "NUnit Test Framework" project. Please follow the instructions to create a test case
+Test project is a "NUnit Test Framework". Please follow the instructions to create a test case
 
-1. Open "SyncGuardianTests" project in Visual Studio. 
-2. Create a new test class in the appropriate folder (WPF or Android).
+1. Open "SG.Tests" project in Visual Studio. 
+2. Create a new test class in the appropriate folder.
 
 ```
 [TestFixture]
