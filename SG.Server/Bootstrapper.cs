@@ -44,6 +44,7 @@ namespace SG.Server
             services.AddSingleton<INetworkInterfaceService, NetworkInterfaceService>();
             services.AddSingleton<IDeviceIDGenerationService, DeviceIDGenerationService>();
             services.AddSingleton<IQRCodeGenerationService, QRCodeGenerationService>();
+            services.AddSingleton<IWebService, WebService>();
             #endregion
 
         }

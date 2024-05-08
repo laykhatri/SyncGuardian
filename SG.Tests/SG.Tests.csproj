@@ -35,6 +35,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SG.Server\SG.Server.csproj" />
+    <ProjectReference Include="..\SG.WebAPI\SG.WebAPI.csproj" />
   </ItemGroup>
 
 </Project>
