@@ -12,5 +12,10 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
+	<Grid>
+		
   <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Content="Navigate" Command="{Binding NavigateToQr}"/>
+	</Grid>
+	
 </UserControl>
