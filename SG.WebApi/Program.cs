@@ -10,9 +10,16 @@ namespace SG.WebApi
 
             builder.Services.AddControllers();
 
+            Bootstapper.ConfigureServices(builder.Services);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
             app.UseHttpsRedirection();
 
